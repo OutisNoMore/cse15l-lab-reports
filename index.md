@@ -21,7 +21,8 @@ Welcome to my very own markdown page!
 ![Image](./smiley.png)
 5. Inline Code
 <br />
-Our code will look like this: `System.out.println("Pretty awesome!");` 
+Our code will look like this: `System.out.println("Pretty awesome!");`
+<br />
 6.
 <br />
 To add a code block:
