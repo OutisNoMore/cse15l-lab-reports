@@ -1,3 +1,8 @@
+---
+layout: page
+title: "first lab report"
+permalink: https://outisnomore.github.io/cse15l-lab-reports/labs
+---
 # Lab Report 1(Week 0)
 My very first lab report for CSE 15L!
 
