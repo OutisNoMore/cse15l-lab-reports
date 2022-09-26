@@ -51,4 +51,4 @@ Welcome to my very own markdown page!
 
 8. View my labs!
 
-   [Lab Report 1](./labs/lab-report-1-week-0.md)
+   [Lab Report 1](labs/lab-report-1-week-0.md)

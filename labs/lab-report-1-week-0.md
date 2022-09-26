@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "first lab report"
+title: "First Lab Report"
 permalink: https://outisnomore.github.io/cse15l-lab-reports/labs
 ---
 # Lab Report 1(Week 0)
@@ -12,4 +12,4 @@ Uploading a screenshot to my webpage
 ![Image](../pictures/Screenshot.png)
 
 ## View previous labs
-[Lab Report 1](https://outisnomore.github.io/cse15l-lab-reports/labs/lab-report-1-week-0.html)
+[Lab Report 1](lab-report-1-week-0.md)
