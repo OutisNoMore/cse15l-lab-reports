@@ -4,7 +4,7 @@ My very first lab report for CSE 15L!
 ## First Assignment
 Uploading a screenshot to my webpage
 
-![Image](./Screenshot.png)
+![Image](./pictures/Screenshot.png)
 
 ## View previous labs
-[Lab Report 1](https://outisnomore.github.io/cse15l-lab-reports/lab-report-1-week-0.html)
+[Lab Report 1](https://outisnomore.github.io/cse15l-lab-reports/labs/lab-report-1-week-0.html)

@@ -24,7 +24,7 @@ Welcome to my very own markdown page!
 
 5. Images
 
-![Image](./smiley.png)
+![Image](./pictures/smiley.png)
 
 6. Inline Code
 
@@ -35,3 +35,7 @@ Our inline code will look like this: `System.out.println("Pretty awesome!");`
 String message = "MarkDown is on top of MarkUp!";
 System.out.println(message);
 ```
+
+8. View my labs!
+
+[Lab Report 1](labs/lab-report-1-week-0.md)
