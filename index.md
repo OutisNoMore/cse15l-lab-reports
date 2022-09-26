@@ -28,7 +28,7 @@ Welcome to my very own markdown page!
 
 6. Inline Code
 
-Our code will look like this: `System.out.println("Pretty awesome!");`
+Our inline code will look like this: `System.out.println("Pretty awesome!");`
 
 7. To add a code block:
 ```
