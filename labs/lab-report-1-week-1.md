@@ -9,20 +9,8 @@ based on the Lab for Week 1 by Professor Joe Politz.
 
 [https://ucsd-cse15l-f22.github.io/week/week1/](https://ucsd-cse15l-f22.github.io/week/week1/)
 
-In short, by the end of this tutorial you will be able to: find your school account to access the UCSD ieng6 server, have
-Visual Studio Code set up, and be able to access the remote ieng6 server from your workstation using SSH. In addition,
+In short, by the end of this tutorial you will: have Visual Studio Code set up, and be able to access the remote ieng6 server from your workstation using SSH. In addition,
 you will also know some tricks to make working on a remote server with ssh a bit more convenient.
-
-## UCSD Student Account
-In this section, we will go over how to find and set up your UCSD student account for access to UCSD servers.
-First, make sure that you have a current student id at ucsd, or else there will not be an account available
-to use. At the time of this writing, the link to access a student account is:
-
-[https://sdacs.ucsd.edu/~icc/index.php](https://sdacs.ucsd.edu/~icc/index.php)
-
-This link will allow you to enter your last name, and student id to find what accounts are assigned to you. Once you
-find your username, you can set or change your password (Note that changes can take up to 15 minutes and sometimes even longer).
-At this point you should have an active and valid student account and password to access the ieng6 server.
 
 ## Installing VSCode
 In this secion, we will go over how to install and set up Visual Studio Code - an IDE for editing and running code.
@@ -80,8 +68,8 @@ cp <source_path> <destination_path>
 This command lets you change directory. If you want to access the home directory you can type `cd ~`
 
 `ls`
-This command lists all files in the specified directory. For example if you want to list files in the home directory 
-you would type: `ls ~`
+This command lists all files in the specified directory. For example if you want to list files in the current directory 
+you would type: `ls`
 
 `pwd`
 This command prints the working directory. This will output the full path to the current directory you are on.
