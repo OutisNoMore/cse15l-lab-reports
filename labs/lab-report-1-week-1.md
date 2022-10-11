@@ -9,8 +9,20 @@ based on the Lab for Week 1 by Professor Joe Politz.
 
 [https://ucsd-cse15l-f22.github.io/week/week1/](https://ucsd-cse15l-f22.github.io/week/week1/)
 
-In short, by the end of this tutorial you will: have Visual Studio Code set up, and be able to access the remote ieng6 server from your workstation using SSH. In addition,
+In short, by the end of this tutorial you will be able to: find your school account to access the UCSD ieng6 server, have
+Visual Studio Code set up, and be able to access the remote ieng6 server from your workstation using SSH. In addition,
 you will also know some tricks to make working on a remote server with ssh a bit more convenient.
+
+## UCSD Student Account
+In this section, we will go over how to find and set up your UCSD student account for access to UCSD servers.
+First, make sure that you have a current student id at ucsd, or else there will not be an account available
+to use. At the time of this writing, the link to access a student account is:
+
+[https://sdacs.ucsd.edu/~icc/index.php](https://sdacs.ucsd.edu/~icc/index.php)
+
+This link will allow you to enter your last name, and student id to find what accounts are assigned to you. Once you
+find your username, you can set or change your password (Note that changes can take up to 15 minutes and sometimes even longer).
+At this point you should have an active and valid student account and password to access the ieng6 server.
 
 ## Installing VSCode
 In this secion, we will go over how to install and set up Visual Studio Code - an IDE for editing and running code.
@@ -92,11 +104,11 @@ as the command `cp`, except that it allows you to work with remote servers.
 Generally, there are two ways to use this command.
 1. To copy from a remote server to your workstation
 
- `scp <username@servername>:<source_file> <destination_file>`
+    `scp <username@servername>:<source_file> <destination_file>`
 
 2. To copy from the workstation to a remote server
 
- `scp <source_file> <username@servername>:<destination_file>`
+    `scp <source_file> <username@servername>:<destination_file>`
 
  ![Image](../pictures/scp.png)
 
