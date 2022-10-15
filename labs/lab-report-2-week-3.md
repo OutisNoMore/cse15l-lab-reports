@@ -107,28 +107,30 @@ public String handleRequest(URI url) {
 The handleRequest function is at the heart of the program. It processes the requests sent to the server, and determines what it is making a call to. If the request is calling add, then the query parameter is added to a specific file in a specified folder. If the request calls search, then the handler will recursively search through all the files and subfiles found in the server and return the paths of all the files that contain the keyword. Finally, all other requests are not recognized and either an error message, or help documentation is returned.
 
 ```
-private static void getFiles(File start, List<String> out, String target) throws Exception {
-      if(!start.exists()){
-        throw new Exception("File: " + start.getPath() + " does not exist");
-      }
-      if(start.isDirectory()){
-        File[] paths = start.listFiles();
-        for(File subFile: paths){
-          File test = new File(subFile.getPath());
-          getFiles(test, out, target);
-        }
-      }
-      else{
-        Scanner reader = new Scanner(start);
-        while(reader.hasNextLine()){
-          if(reader.nextLine().contains(target)){
-            out.add(start.getPath());
-            break;
-          }
-        }
-        reader.close();
-      }
+private static void getFiles(File start, ArrayList<String> out, String target) {
+  if(!start.exists()){
+    System.out.println("File: " + start.getPath() + does not exist");
+  }
+  if(start.isDirectory()){
+    File[] paths = start.listFiles();
+    for(File subFile: paths){
+      File test = new File(subFile.getPath());
+      getFiles(test, out, target);
     }
+  }
+  else{
+    try(Scanner reader = new Scanner(start);){
+      while(reader.hasNextLine()){
+        if(reader.nextLine().contains(target)){
+          out.add(start.getPath());
+          break;
+        }
+      }
+    } catch(Exception e){
+      System.out.println("Error: " + e.getMessage());
+    } 
+  }
+}
 ```
 The getFiles function is another helper function. This is the function that recursively searches through every file and folder to find the target words.
 
@@ -143,6 +145,7 @@ Some other calls were made to add to populate other files and subfiles, but thes
 
 ### Search
 ![add](../pictures/search.png)
+
 This example shows the results of calling search. This will return the path to all the files that contained the target keyword - in this case "Chick". An array list of all these paths are updated.
 
 ## Unit Testing with JUnit
