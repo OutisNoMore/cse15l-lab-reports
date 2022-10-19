@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Search Engines and Unit Testing with JUnit"
-permalink: https://outisnomore.github.io/cse15l-lab-reports/labs
+permalink: /labs/lab-report-2-week-3
 ---
 # Lab Report 2 (Week 3)
 In the first part of this lab report we will describe some new updates to a simple search engine that was created. The second half of the lab report will explain some examples of unit testing code using JUnit.
@@ -235,5 +235,6 @@ n.next = new Node(value, null);
 ```
 
 ## View previous labs
-[Lab Report 1](lab-report-1-week-0.md)
-[Lab Report 1.5](lab-report-1-week-1.md)
+[Lab Report 1](./lab-report-1-week-0.md)
+
+[Lab Report 1.5](./lab-report-1-week-1.md)

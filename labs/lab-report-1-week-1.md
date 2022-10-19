@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "First Real Lab Report"
-permalink: https://outisnomore.github.io/cse15l-lab-reports/labs
+permalink: /labs/lab-report-1-week-2
 ---
 # Lab Report 1 (Week 1)
 This lab will act as a tutorial for setting up the work environment necessary to do assignments in CSE 15L. It is

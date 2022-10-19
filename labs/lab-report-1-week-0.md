@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "First Lab Report"
-permalink: https://outisnomore.github.io/cse15l-lab-reports/labs
+permalink: /labs/lab-report-1-week-0
 ---
 # Lab Report 1(Week 0)
 My very first lab report for CSE 15L!
