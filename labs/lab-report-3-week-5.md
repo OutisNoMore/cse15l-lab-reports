@@ -141,7 +141,6 @@ The -exec option allows you to execute a command on every file that is discovere
 `find <start_dir> -name <expression> -exec [commands] {} \;`
 
 1. 
-
   ```
   $ find technical -name "*.txt" -exec grep -l "RDBMS" {} \;
   technical/biomed/1471-2105-3-2.txt
@@ -149,7 +148,6 @@ The -exec option allows you to execute a command on every file that is discovere
   As you can see this command used find to get all files with a .txt extension. Then the -exec flag is used to execute a command, in this case grep. The {} represents each file found by find, and the \; represents the end of the command. This specific example uses find -exec and grep to find all txt files that contain the phrase RDBMS. Only one file does.
 
 2. 
-
   ```
   $ find technical -name "*.txt" -exec wc {} \;
     254  2421 14232 technical/government/Media/ Terrorist_Attack.txt
@@ -220,7 +218,6 @@ The following syntaxes apply:
   For this example, the file 1a.txt was created about 7 hours ago at the time of execution. This command searched in the directory technical ending with .txt that was created in the last 8 hours. The command found the file 1a.txt and the directory technical/plos because they were changed in the last 8 hours. 
 
 2. find +n
-
   ```
   $ find technical -name "*.txt" -cmin +1
   technical/government/Media/Terrorist_Attack.txt
