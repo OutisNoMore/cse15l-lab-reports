@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post 
 title: "First Real Lab Report"
 permalink: /labs/lab-report-1-week-2
 ---

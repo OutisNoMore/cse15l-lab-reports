@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post 
 title: "Search Engines and Unit Testing with JUnit"
 permalink: /labs/lab-report-2-week-3
 ---
