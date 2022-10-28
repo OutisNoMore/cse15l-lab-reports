@@ -209,47 +209,47 @@ The following syntaxes apply:
 `find <start_dir> -name <expression> -amin -n`
 
 1. find -n
-  ```
-  $ find technical -name "*.txt" -cmin -480
-  technical/plos
-  technical/plos/1a.txt
-  ```
+   ```
+   $ find technical -name "*.txt" -cmin -480
+   technical/plos
+   technical/plos/1a.txt
+   ```
 
-  For this example, the file 1a.txt was created about 7 hours ago at the time of execution. This command searched in the directory technical ending with .txt that was created in the last 8 hours. The command found the file 1a.txt and the directory technical/plos because they were changed in the last 8 hours. 
+   For this example, the file 1a.txt was created about 7 hours ago at the time of execution. This command searched in the directory technical ending with .txt that was created in the last 8 hours. The command found the file 1a.txt and the directory technical/plos because they were changed in the last 8 hours. 
 
 2. find +n
-  ```
-  $ find technical -name "*.txt" -cmin +1
-  technical/government/Media/Terrorist_Attack.txt
-  technical/government/Media/Domestic_violence_aid.txt
-  technical/government/Media/fight_domestic_abuse.txt
-  technical/government/Media/Entities_Merge.txt
-  technical/government/Media/Free_legal_service.txt
-  technical/government/Media/Philly_Lawyers.txt
-  technical/government/Media/Making_a_case.txt
-  technical/government/Media/Legal_system_fails_poor.txt
-  technical/government/Media/Barnes_new_job.txt
-  technical/government/Media/defend_yourself.txt
-  ...
-  technical/plos/journal.pbio.0030131.txt
-  technical/plos/journal.pbio.0020105.txt
-  technical/plos/pmed.0020086.txt
-  technical/plos/pmed.0010022.txt
-  technical/plos/pmed.0020235.txt
-  technical/plos/pmed.0020191.txt
-  technical/plos/pmed.0020242.txt
-  ```
-
-  This command searched for all txt files in the technical directory that was changed after the last 1 minute. This applies to practically all the files in the directory.
+   ```
+   $ find technical -name "*.txt" -cmin +1
+   technical/government/Media/Terrorist_Attack.txt
+   technical/government/Media/Domestic_violence_aid.txt
+   technical/government/Media/fight_domestic_abuse.txt
+   technical/government/Media/Entities_Merge.txt
+   technical/government/Media/Free_legal_service.txt
+   technical/government/Media/Philly_Lawyers.txt
+   technical/government/Media/Making_a_case.txt
+   technical/government/Media/Legal_system_fails_poor.txt
+   technical/government/Media/Barnes_new_job.txt
+   technical/government/Media/defend_yourself.txt
+   ...
+   technical/plos/journal.pbio.0030131.txt
+   technical/plos/journal.pbio.0020105.txt
+   technical/plos/pmed.0020086.txt
+   technical/plos/pmed.0010022.txt
+   technical/plos/pmed.0020235.txt
+   technical/plos/pmed.0020191.txt
+   technical/plos/pmed.0020242.txt
+   ```
+ 
+   This command searched for all txt files in the technical directory that was changed after the last 1 minute. This applies to practically all the files in the directory.
 
 3. find n
 
-  ```
-  $ find technical -name "*.txt" -cmin 450
-  technical/plos/1a.txt
-  ```
-  
-  This command searches the technical directory for a file ending with .txt that was created exactly 450, or 7.5 hours ago. For this example it was `technical/plos/1a.txt`.
+   ```
+   $ find technical -name "*.txt" -cmin 450
+   technical/plos/1a.txt
+   ```
+   
+   This command searches the technical directory for a file ending with .txt that was created exactly 450, or 7.5 hours ago. For this example it was `technical/plos/1a.txt`.
 
 
 ## View previous labs
