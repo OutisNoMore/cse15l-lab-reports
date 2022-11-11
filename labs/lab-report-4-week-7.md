@@ -47,3 +47,13 @@ Developers often find themselves working on remote machines. There are many reas
 `Using VSCode: 20.81 seconds`
 
 As you can see, editing files directly in the remote server using Vim takes much less time. The main difficulty during my tests was having to switch between the terminal and VSCode and then having to wait for the file to copy with scp before waiting for an ssh connection to run the file remotely. On the other hand, using Vim was easy and only required working on one terminal without having to switch between machines. For remote work, it seems like Vim would be a very convenient tool in many cases. However, for some projects, such as ones that require a GUI or other graphics, it might make more sense to use a local code editor to make changes before copying the files to a remote server to run. Also, having syntax checking and linters in code editors can also be a very useful tool which is difficult to have on vim. All in all, Vim is a powerful tool that can make tasks more convenient if used in the right situations.
+
+## View previous labs
+
+[Lab Report 1](./lab-report-1-week-0.md)
+
+[Lab Report 1.5](./lab-report-1-week-1.md)
+
+[Lab Report 2](./lab-report-2-week-3.md)
+
+[Lab Report 3](./lab-report-3-week-5.md)
