@@ -103,7 +103,16 @@ git clone $1 student-submission 2> errorlog.txt > gitlog.txt
 `rm -rf student-submission &> /dev/null` does something similar, and removes the student-submission directory from previous tests.  Again, all standard output and error is discarded.
 
 Now that we can be certain that there are no files from previous tests, we can clone the new student repository for testing.
-`git clone $1 student-submission 2> errorlog.txt > gitlog.txt` This line clones the given repository and saves into a directory named student-submission. All standard error is redirected to the errorlog.txt file, and all standard output is redirected to the gitlog.txt file.
+`git clone $1 student-submission 2> errorlog.txt > gitlog.txt` This line clones the given repository and saves into a directory named student-submission. All standard error is redirected to the errorlog.txt file, and all standard output is redirected to the gitlog.txt file. For the second example, we see that we successfully cloned the repository. So in our errorlog.txt file, we see `Cloning into 'student-submission'...`, and in our gitlog.txt file there will be nothing. Hmmm, this is curious. Normally we would expect the output to be:
+```
+Cloning into 'student-submission'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+```
+But we only have the first line saved in the error file. Well, if you look at the man pages for git-clone, it turns out that git defaults to reporting status on the error stream. This explains why the log for the stdout stream is empty. However, the reason why we only see the first line is because the progress status is only reported to the stderr stream on the terminal. Since we redirected the error stream to the file, the progress status is not reported. The return code for git clone is 0 for success.
 
 Now that we have cloned the repository, we want to check that the file exists and is named ListExamples.java as expected. We do this with the following if statement.
 ```
@@ -113,6 +122,7 @@ if [ ! -f student-submission/$FILE ]; then
   exit 1
 fi
 ```
+The command ` -f student-submission/$FILE` checks if a file exists, by adding a `!` we check for the negation, or if file does not exist.
 
 In this example, the student submission exists, and is properly named, so we do not enter the body of the if statement. Instead we move on.
 
@@ -131,7 +141,7 @@ if [[ $? -ne 0 ]]; then
     echo $MSG
 ```
 
-This command compiles all java files, including the test files and our student submission file. The standard output is saved into the javaclog.txt file, and standard error is stored into the compileErrLog.txt file. In this run, there are no compile time errors, nor output because all compilation is successful. If there was an error, the script would print that an compile error occurred, and also print the specific error message from the javac.
+This command compiles all java files, including the test files and our student submission file. The standard output is saved into the javaclog.txt file, and standard error is stored into the compileErrLog.txt file. In this run, there are no compile time errors, nor output because all compilation is successful. If there was an error, the script would print that an compile error occurred, and also print the specific error message from the javac. Furthermore, the return code would be 0 to indicate a successful exit.
 
 Now that our file has been compiled successfully, we wish to run tests on it.
 ```
@@ -153,10 +163,28 @@ else
 fi
 ```
 
-Since, there are no errors, we skip the if statement, and move onto the body of the else. 
-`java -cp $CLASSPATH $JUNIT TestListExamples 2> javaErrlog.txt > javalog.txt` This command runs the java file with our tests, and stores all error output into javaErrLog.txt, and all standard otuput into javalog.txt. This would be the result of running the JUnit testing framework on our student submission. In this case we would not have any error, but we would have output saying that 1 test has failed. This command has a return value of 0, for no error.
+The if condition checks if the exit code of the javac is not equal to 0. However, in the example we are tracing, there were no errors and so the exit code is equal to 0. Now we skip the body of the if statement and move onto the body of the else. 
 
-`ALLPASS=$(cat javalog.txt | grep "OK")` This command checks if all tests have compiled successfully by looking for the OK output from JUnit. In this example, ALLPASS would be empty because we failed a test, and JUnit would not print OK.
+
+`java -cp $CLASSPATH $JUNIT TestListExamples 2> javaErrlog.txt > javalog.txt` 
+
+This command runs the java file with our tests, and stores all error output into javaErrLog.txt, and all standard otuput into javalog.txt. This would be the result of running the JUnit testing framework on our student submission. In this case we would not have any error on the stderr stream, however there would be standard output with the results of running JUnit tests. The standard output, and the contents of javalog.txt would look like this:
+
+```
+JUnit version 4.13.2
+....E
+Time: 0.009
+There was 1 failure:
+1) testMerge3(TestListExamples)
+array lengths differed, expected.length=6 actual.length=3; arrays first differed at element [1]; expected:<[a]> but was:<[b]>
+        at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
+        at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
+...
+```
+
+ This command has a return value of 0, for no error. There are no errors even though a test has failed, because running the JUnit itself has not failed.
+
+The following command: `ALLPASS=$(cat javalog.txt | grep "OK")` checks if all tests have compiled successfully by looking for the OK output from JUnit. In this example, ALLPASS would be empty because we failed a test, and JUnit would not print OK.
 
 ```
 if [[ $ALLPASS == *"OK"* ]]; then
@@ -167,11 +195,11 @@ else
 fi
 ```
 
-In this example, because ALLPASS does not equal OK, we skip the body of the if statement, and enter the body of the else. 
+In this example, we use regex to check if ALLPASS contains OK. Because ALLPASS does not contain OK, we skip the body of the if statement, and enter the body of the else. 
 
-`FAILED=$(cat javalog.txt | grep "Failures")` This command gets the line with the number of tests failed from the JUnit output, and stores it in the FAIL variable.
+`FAIL=$(cat javalog.txt | grep "Failures")` This command gets the line with the number of tests failed from the JUnit output, and stores it in the FAIL variable.
 
-`PASSED=$(($TOTAL - ${FAIL: -1}))` This command calculates how many tests were passed based off of the total tests set at the start of the script, and the number of tests failed as reported by JUnit. In this case, PASSED = 4 - 1 = 3.
+`PASSED=$(($TOTAL - ${FAIL: -1}))` This command calculates how many tests were passed based off of the total tests set at the start of the script, and the number of tests failed as reported by JUnit. `${FAIL: -1}` gets the last character in the variable FAIL. In this case, PASSED = 4 - 1 = 3.
 
 Finally, we are ready to print the test statistics.
 ```
