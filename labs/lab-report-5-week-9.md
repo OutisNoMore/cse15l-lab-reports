@@ -122,7 +122,7 @@ if [ ! -f student-submission/$FILE ]; then
   exit 1
 fi
 ```
-The command ` -f student-submission/$FILE` checks if a file exists, by adding a `!` we check for the negation, or if file does not exist.
+The command `-f student-submission/$FILE` checks if a file exists, by adding a ! we check for the negation, or if file does not exist.
 
 In this example, the student submission exists, and is properly named, so we do not enter the body of the if statement. Instead we move on.
 
