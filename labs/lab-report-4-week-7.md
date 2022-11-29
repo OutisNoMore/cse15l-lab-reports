@@ -30,13 +30,15 @@ Let's say we want to replace all uses of the parameter start with base. We can d
 
 `:%s/start/base<Enter>:w<Enter>`
 
-Here is what it looks like to run the commands
+We start off in normal mode and the vim command %s allows us to replace all instances of a target with a word, in the following syntax: `%s/<target>/<replacing_string>`. Now that we have replaced all instances of target, or start in our case, we want to do :w to save our changes to the file.
+
+Here is what it looks like before running the commands
 ![cmd](../pictures/lab4-typecmd.png)
 
 This is what it looks like after the command has been run.
 ![run](../pictures/lab4-runcmd.png)
 
-Finally, to save the changes we type :w<Enter>. This will write to the file we are editing.
+Finally, to save the changes we type `:w<Enter>`. This will write to the file we are editing.
 ![save](../pictures/lab4-save.png)
 
 ## Part 2 - Working on Remote Machiens
